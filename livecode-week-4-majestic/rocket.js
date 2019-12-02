@@ -19,7 +19,7 @@
  *          ["3", "x", " ", " "]
  *        ] 
  *     maka output yang di harapkan adalah:
- *       output: [["A2", "A3"], ["C3"], ["A1", "C2"]]
+ *       output: [["A2", "A3"], ["C1"], ["A1", "C2"]]
  *  
  *  Jika salah satu item tidak di temukan, maka array yang mengisi kumpulan koordinat tersebut,
  *  menjadi array kosong
@@ -42,6 +42,36 @@
 
 function checkCoordinate (board) {
   // your code here
+  let result = [[], [], []];
+
+  // Looking for X
+  for (let i = 1; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      if (board[i][j] === 'x') {
+        result[0].push(`${board[0][j]}${board[i][0]}`);
+      }
+    }
+  }
+
+  // Looking for Z
+  for (let i = 1; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      if (board[i][j] === 'z') {
+        result[1].push(`${board[0][j]}${board[i][0]}`);
+      }
+    }
+  }
+
+  // Looking for Y
+  for (let i = 1; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      if (board[i][j] === 'y') {
+        result[2].push(`${board[0][j]}${board[i][0]}`);
+      }
+    }
+  }
+
+  return result;
 }
 
 var array = [
@@ -51,7 +81,7 @@ var array = [
   ["3", "x", " ", " "],
 ]
 console.log(checkCoordinate(array))
-// [["B1", "B2", "A3"], ["C2"], ["A2"]]
+// [["B1", "B2", "A3"], ["A2"], ["C2"]]
 
 var array1 = [
   [" ", "A", "B", "C", "D"],
