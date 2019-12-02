@@ -45,7 +45,7 @@ function secretPhoneNumber(numbers) {
     numbersContainer += numbers[i];
   }
 
-  for (let j = numbersContainer.length - 1; j < numbers.length; j++) {
+  for (let j = numbersContainer.length; j < numbers.length; j++) {
     numbersContainer += '*';
   }
 
